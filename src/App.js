@@ -1,17 +1,7 @@
-import { useEffect } from "react";
+import { useGlobalContext } from "./context";
 
 function App() {
-  const fetchData = async () => {
-    const response = await fetch(
-      "https://www.omdbapi.com/?apikey=a931948e&s=batman"
-    );
-    const data = await response.json();
-    console.log(data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  });
+  const { isLoading, data } = useGlobalContext();
 
   return (
     <div>
