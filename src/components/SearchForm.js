@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../context";
 
-function SearchForm() {
+const SearchForm = () => {
   const { query, setQuery, data } = useGlobalContext();
 
   return (
@@ -15,6 +15,6 @@ function SearchForm() {
       {data.Response && <div className="error">{data.Error}</div>}
     </form>
   );
-}
+};
 
 export default SearchForm;
