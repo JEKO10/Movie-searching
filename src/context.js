@@ -14,7 +14,7 @@ const AppProvider = ({ children }) => {
         `https://www.omdbapi.com/?apikey=a931948e&s=${query}`
       );
       const data = await response.json();
-      setData(data.Search);
+      setData(data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
