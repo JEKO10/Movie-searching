@@ -1,13 +1,17 @@
 import { useGlobalContext } from "./context";
+import { Switch, Route } from "react-router";
+import Home from "./components/Home";
 
 function App() {
   const { isLoading, data } = useGlobalContext();
 
   console.log(data);
   return (
-    <div>
-      <h1>Movie searching</h1>
-    </div>
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+    </Switch>
   );
 }
 
