@@ -1,16 +1,16 @@
 import React from "react";
-// import { Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
-import Movies from "./components/Movies";
+import SingleMovie from "./components/SingleMovie";
 
 const App = () => {
   return (
-    // <Switch>
-    //   <Route path="/" exact>
-    //     <Home />
-    //   </Route>
-    // </Switch>
-    <Movies />
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/movies/:id" children={<SingleMovie />} />
+    </Switch>
   );
 };
 

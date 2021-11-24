@@ -12,7 +12,7 @@ const SearchForm = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      {data.Response && <div className="error">{data.Error}</div>}
+      {!data.Response && <div className="error">{data.Error}</div>}
     </form>
   );
 };
