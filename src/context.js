@@ -14,7 +14,9 @@ const AppProvider = ({ children }) => {
         `https://www.omdbapi.com/?apikey=a931948e&s=${query}`
       );
       const data = await response.json();
-      setData(data);
+      if (data.Response === "True") {
+        setData(data);
+      }
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -23,10 +25,13 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
+    console.log(data);
   }, [query]);
 
   return (
-    <AppContext.Provider value={{ isLoading, data, query, setQuery }}>
+    <AppContext.Provider
+      value={{ isLoading, setIsLoading, data, query, setQuery }}
+    >
       {children}
     </AppContext.Provider>
   );

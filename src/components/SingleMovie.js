@@ -6,15 +6,21 @@ import { useGlobalContext } from "../context";
 
 const SingleMovie = () => {
   const [singleMovie, setSingleMovie] = useState([]);
-  const { isLoading } = useGlobalContext();
+  const { isLoading, setIsLoading } = useGlobalContext();
   const { id } = useParams();
 
   const fetchMovie = async () => {
-    const response = await fetch(
-      `https://www.omdbapi.com/?apikey=a931948e&i=${id}`
-    );
-    const data = await response.json();
-    setSingleMovie(data);
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `https://www.omdbapi.com/?apikey=a931948e&i=${id}`
+      );
+      const data = await response.json();
+      setSingleMovie(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
