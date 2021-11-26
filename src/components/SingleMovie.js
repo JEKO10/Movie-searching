@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
-//   const movies = data.Search;
+const url =
+  "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 
 const SingleMovie = () => {
   const [singleMovie, setSingleMovie] = useState([]);
@@ -48,13 +49,13 @@ const SingleMovie = () => {
   } = singleMovie;
   return (
     <section className="singleMovie">
-      <img src={poster} alt={title} />
+      <img src={poster === "N/A" ? url : poster} alt={title} />
       <div className="singleMovieInfo">
-        <h2>{title}</h2>
+        <h1>{title}</h1>
+        <h2>{year}</h2>
         <p>{plot}</p>
-        <h4>{year}</h4>
-        <h3>Dir. {director}</h3>
-        <h3>Run Time: {runtime}</h3>
+        <h3>Directed by: {director}</h3>
+        <h3>Runtime: {runtime}</h3>
         <Link to="/" id="btn">
           Back to movies
         </Link>
