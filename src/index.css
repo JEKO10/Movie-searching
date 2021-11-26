@@ -89,6 +89,14 @@ body {
   gap: 2rem;
 }
 
+.singleMovie h1 {
+  font-size: 2.5rem;
+}
+
+.singleMovie h2 {
+  font-size: 2rem;
+}
+
 .singleMovie img {
   width: 100%;
   display: block;
@@ -121,6 +129,7 @@ body {
 .errorPage {
   text-align: center;
   padding: 5rem;
+  color: red;
 }
 
 .errorPage h1 {
